@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <title>Page not found — Diversity</title>
+    <meta http-equiv="refresh" content="1; url=/First/">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #faf3ea;
+            color: #4a3123;
+        }
+
+        main {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        a {
+            color: #3d8f7c;
+        }
+    </style>
+    <script>
+        (function () {
+            var p = location.pathname.replace(/\/+$/, '');
+            if (/\/First\/Second(\/index\.html)?$/i.test(p)) { location.replace('/Second/'); return; }
+            if (/\/Second\/First(\/index\.html)?$/i.test(p)) { location.replace('/First/'); return; }
+            setTimeout(function () { location.replace('/First/'); }, 800);
+        })();
+    </script>
+</head>
+
+<body>
+    <main>
+        <h1>Page not found</h1>
+        <p>Taking you back to the site…</p>
+        <p><a href="/First/">Continue to the site</a></p>
+    </main>
+</body>
+
+</html>
