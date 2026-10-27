@@ -1,0 +1,492 @@
+body {
+  background-color: #f3d3be;
+  min-height: 100vh;
+}
+
+.hero-bg {
+  position: relative;
+  min-height: 110vh;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 14vh 1rem 3rem;
+}
+
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: -25px;
+  background-image: url("https://www.dropbox.com/scl/fi/7v98te8t1zarx8fmvvjqa/flat-lay-composition-still-life-friendship-day-elements.jpg?rlkey=5teqww9rnjzc3mp7yt069lka1&st=9lbgvhzm&raw=1");
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px);
+  animation: shake 1.6s ease-in-out infinite;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content h1 {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+}
+
+.scroll-down-arrow {
+  display: inline-block;
+  font-size: 3rem;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  margin-top: 1.75rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(1px, -1px);
+  }
+  40% {
+    transform: translate(-0.8px, 1px);
+  }
+  60% {
+    transform: translate(1px, 0.8px);
+  }
+  80% {
+    transform: translate(-1px, -1px);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(14px);
+  }
+}
+
+.diversity-section {
+  position: relative;
+  overflow: hidden;
+  background-color: #f3d3be;
+  color: #4a3123;
+}
+
+.diversity-section::before {
+  content: "";
+  position: absolute;
+  inset: -25px;
+  background-image: url("https://www.dropbox.com/scl/fi/7v98te8t1zarx8fmvvjqa/flat-lay-composition-still-life-friendship-day-elements.jpg?rlkey=5teqww9rnjzc3mp7yt069lka1&st=9lbgvhzm&raw=1");
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px);
+  animation: shake 1.6s ease-in-out infinite;
+}
+
+.diversity-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(243, 211, 190, 0.72);
+  pointer-events: none;
+}
+
+/* Continuous Ticker for Motivation Cards */
+
+.motivational-ticker-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 1.5rem 0;
+}
+
+.motivational-ticker-container::before, .motivational-ticker-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.motivational-ticker-container::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(243, 211, 190, 0.95), transparent);
+}
+
+.motivational-ticker-container::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(243, 211, 190, 0.95), transparent);
+}
+
+.motivational-ticker-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: scrollTicker 35s linear infinite;
+}
+
+.motivational-ticker-container:hover .motivational-ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker-card-wrapper {
+  width: 340px;
+  flex-shrink: 0;
+}
+
+@keyframes scrollTicker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}
+
+.diversity-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.card-slider {
+  max-width: 780px;
+  margin: 2rem auto 0;
+  padding: 0 3.5rem;
+}
+
+.slider-card {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 3rem 2.5rem 2.5rem;
+  border-radius: 4px 12px 6px 10px;
+  background-color: #faf6ef;
+  background-image: radial-gradient(rgba(180, 150, 120, 0.08) 1px, transparent 1px), radial-gradient(rgba(140, 110, 80, 0.06) 1px, transparent 1px);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+  border: 1px solid rgba(120, 95, 75, 0.18);
+  box-shadow: 2px 4px 16px rgba(60, 40, 25, 0.12), 0 1px 3px rgba(60, 40, 25, 0.08);
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+/* Washi tape header strip effect */
+
+.slider-card::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 90px;
+  height: 24px;
+  background-color: var(--card-accent, #e07a5f);
+  opacity: 0.85;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  mask-image: radial-gradient(circle at 4px 4px, transparent 4px, black 4.5px);
+  mask-size: 12px 100%;
+}
+
+.slider-card:hover {
+  box-shadow: 4px 10px 28px rgba(60, 40, 25, 0.18), 0 2px 6px rgba(60, 40, 25, 0.1);
+  transform: translateY(-5px) rotate(0.5deg);
+}
+
+.slider-card:focus-visible {
+  outline: 2px dashed var(--card-accent, #e07a5f);
+  outline-offset: 4px;
+}
+
+.slider-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 6px 16px 8px 12px;
+  font-size: 1.7rem;
+  color: #fff;
+  background: var(--card-accent, #e07a5f);
+  box-shadow: 1px 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 0.8rem;
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+}
+
+.slider-card:hover .slider-icon {
+  transform: rotate(3deg) scale(1.05);
+}
+
+.slider-card h5 {
+  margin: 1rem 0 0.4rem;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #4a3123;
+}
+
+.slider-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #6d513d;
+}
+
+.tap-hint {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  color: #8c6a53;
+  border-bottom: 1px dotted currentColor;
+  padding-bottom: 1px;
+}
+
+.slider-control {
+  width: 46px;
+  height: 46px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(74, 49, 35, 0.45);
+  border-radius: 50%;
+  opacity: 1;
+}
+
+.slider-control:hover {
+  background: rgba(74, 49, 35, 0.7);
+}
+
+.slider-control .carousel-control-prev-icon, .slider-control .carousel-control-next-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.slider-indicators {
+  position: static;
+  margin-top: 1.5rem;
+}
+
+.slider-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 0;
+  background-color: #4a3123;
+  opacity: 0.35;
+}
+
+.slider-indicators .active {
+  opacity: 1;
+  transform: scale(1.25);
+}
+
+.card-modal .modal-content {
+  border: 1px solid rgba(120, 95, 75, 0.2);
+  border-radius: 8px 16px 10px 14px;
+  background-color: #faf6ef;
+  color: #4a3123;
+  box-shadow: 0 20px 40px rgba(50, 30, 15, 0.25);
+  overflow: hidden;
+}
+
+.card-modal .modal-header {
+  border-bottom: none;
+  padding: 1.75rem 2rem 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.card-modal .modal-header .btn-close {
+  box-shadow: none;
+  opacity: 0.7;
+  color: #4a3123;
+  font-size: 1.2rem;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.card-modal .modal-header .btn-close:hover {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+.card-modal .modal-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 1.75rem;
+  right: 1.75rem;
+  height: 1px;
+  background-color: rgba(120, 95, 75, 0.1);
+}
+
+.card-modal .modal-body {
+  padding: 1rem 1.75rem 0.25rem;
+}
+
+.card-modal .modal-body h3 {
+  margin: 0.5rem 0 0.75rem;
+  font-weight: 800;
+}
+
+.card-modal .modal-body p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #5d442f;
+}
+
+.card-modal .modal-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  font-size: 1.45rem;
+  color: var(--modal-accent, #e07a5f);
+  background: color-mix(in srgb, var(--modal-accent, #e07a5f) 15%, white);
+}
+
+.card-modal .modal-footer {
+  border: none;
+  padding: 0.5rem 1.75rem 1.75rem;
+}
+
+.card-modal .modal-footer .btn {
+  border-radius: 12px 4px 10px 6px;
+  padding: 0.6rem 1.8rem;
+  border: 1px dashed rgba(120, 95, 75, 0.4);
+  background: #f0ede6;
+  color: #4a3123;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+}
+
+.card-modal .modal-footer .btn:hover {
+  background: #e6e0d9;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.12);
+  color: #4a3123;
+  transform: translateY(-1px);
+}
+
+.next-btn {
+  border-radius: 12px 4px 10px 6px;
+  padding: 0.75rem 2.5rem;
+  border: 1px dashed rgba(120, 95, 75, 0.4);
+  background: #f0ede6;
+  color: #4a3123;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.next-btn:hover {
+  background: #e6e0d9;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.12);
+  color: #4a3123;
+  transform: translateY(-1px);
+}
+
+.paper-note {
+  background-color: #faf6ef;
+  background-image: radial-gradient(rgba(180, 150, 120, 0.08) 1px, transparent 1px);
+  background-size: 16px 16px;
+  border: 1px solid rgba(120, 95, 75, 0.2);
+  border-radius: 4px 14px 8px 12px;
+  padding: 2.25rem 2rem;
+  height: 100%;
+  position: relative;
+  box-shadow: 3px 6px 18px rgba(60, 40, 25, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.paper-note:hover {
+  transform: translateY(-3px) rotate(0.3deg);
+  box-shadow: 5px 10px 24px rgba(60, 40, 25, 0.15);
+}
+
+.note-yellow {
+  --tape-color: #e6c56b;
+}
+
+.note-green {
+  --tape-color: #79a893;
+}
+
+.note-tape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(1.5deg);
+  width: 80px;
+  height: 22px;
+  background-color: var(--tape-color, #e07a5f);
+  opacity: 0.85;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  mask-image: radial-gradient(circle at 4px 4px, transparent 4px, black 4.5px);
+  mask-size: 12px 100%;
+}
+
+.paper-note h4 {
+  font-size: 1.35rem;
+  color: #4a3123;
+}
+
+.paper-note p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #6d513d;
+}
+
+.diversity-section .lead {
+  font-weight: 700;
+  color: #4a3123;
+}
+
+.diversity-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 575.98px) {
+  .card-slider {
+    padding: 0 2.25rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .slider-card {
+    padding: 2rem 1.25rem 1.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .slider-icon {
+    width: 58px;
+    height: 58px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .slider-control {
+    width: 36px;
+    height: 36px;
+  }
+}
+
